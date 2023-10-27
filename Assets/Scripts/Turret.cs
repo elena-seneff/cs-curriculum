@@ -11,17 +11,16 @@ public class Turret : MonoBehaviour
     
     private float originalTimer;
     private float timer;
-
-    
-    
     public GameObject Turret_Projectile;
-    public float launchVelocity = 10f;
+    private GameObject target;
+    
     
     // Start is called before the first frame update
     void Start()
     {
         originalTimer = 1.5f;
         timer = originalTimer;
+        
     }
 
     // Update is called once per frame
@@ -41,8 +40,13 @@ public class Turret : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        target = other;
+        target = other.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        target = null;
     }
 }

@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class FIreball : MonoBehaviour
+public class Fireball : MonoBehaviour
 {
+    public GameObject player;
 
-    private gameOgject player;
+    private Vector3 target;
+
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject.fi
+        target = player.transform.position;
+        speed = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 }

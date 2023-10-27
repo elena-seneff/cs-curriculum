@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,8 +6,11 @@ public class HealthManager : MonoBehaviour
     bool iframes=false;
     private float timer;
     float originalTimer;
+    
     private float xVector;
     private float yVector;
+    
+    
     public HUD hud;
 
     // Start is called before the first frame update
@@ -46,21 +45,12 @@ public class HealthManager : MonoBehaviour
         if (other.gameObject.CompareTag("Spikes"))
         {
             //change (amount:__) to change how much health drops by when you hit a spike
-            ChangeHealth(-1);
-            
+            ChangeHealth(amount: -1);
         }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other. gameObject.CompareTag("Potion"))
+        
+        if (other.gameObject.CompareTag("Projectile"))
         {
-            ChangeHealth(1);
-            
-            if (hud.health > 5)
-            {
-                hud.health = 5;
-            }
+            ChangeHealth(amount:-1);
         }
     }
 
@@ -70,14 +60,14 @@ public class HealthManager : MonoBehaviour
        if (!iframes)
        { 
            iframes = true; 
-           hud.health += amount;
+           hud.health =+ amount;
            if (hud.health < 1)
            {
                Death();
            }
        }
        Debug.Log("Health: "+hud.health);
-    }
+   }
 
    void Death()
    {
@@ -85,5 +75,7 @@ public class HealthManager : MonoBehaviour
        print("You Died");
 
    }
+   
+   
    
 }
