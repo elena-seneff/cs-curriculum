@@ -33,11 +33,6 @@ public class HealthManager : MonoBehaviour
                 timer = originalTimer;
             }
         }
-
-       
-        
-        
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -52,11 +47,17 @@ public class HealthManager : MonoBehaviour
         {
             ChangeHealth(amount:-1);
         }
+
+        if (other.gameObject.CompareTag("Potion"))
+        {
+            ChangeHealth(amount:1);
+        }
     }
 
 
     void ChangeHealth(int amount)
-   {
+    {
+        
        if (!iframes)
        { 
            iframes = true; 
@@ -67,15 +68,12 @@ public class HealthManager : MonoBehaviour
            }
        }
        Debug.Log("Health: "+hud.health);
-   }
+       
+    }
 
-   void Death()
-   {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-       print("You Died");
+    private void Death()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
-   }
-   
-   
-   
 }

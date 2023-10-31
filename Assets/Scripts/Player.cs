@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class Fireball : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public GameObject player;
-
-    private Vector3 target;
-
+    public GameObject fire;
     public float speed;
+    
+   
     // Start is called before the first frame update
     void Start()
     {
-        target = player.transform.position;
-        speed = 4;
+        speed = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(fire, transform.position, transform.rotation);
+            
+        }
     }
 }
