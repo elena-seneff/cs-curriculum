@@ -45,12 +45,12 @@ public class HealthManager : MonoBehaviour
         
         if (other.gameObject.CompareTag("Projectile"))
         {
-            ChangeHealth(amount:-1);
+            ChangeHealth(amount: -2);
         }
 
         if (other.gameObject.CompareTag("Potion"))
         {
-            ChangeHealth(amount:1);
+            ChangeHealth(amount: +2);
         }
     }
 
@@ -67,13 +67,14 @@ public class HealthManager : MonoBehaviour
                Death();
            }
        }
-       Debug.Log("Health: "+hud.health);
+       Debug.Log(message:"Health: "+hud.health);
        
     }
 
     private void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log(message: "You Died :( ");
     }
-
+    
 }

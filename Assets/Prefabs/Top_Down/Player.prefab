@@ -240,7 +240,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0678d190867418cb30ed6bb86ca65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 8836519774331192363, guid: d181d0f6b0e116b4298e1e64b89f707e, type: 3}
+  fire: {fileID: 412193027009803667}
   speed: 0
-  coolDown: 0
-  projectileSpeed: 500
