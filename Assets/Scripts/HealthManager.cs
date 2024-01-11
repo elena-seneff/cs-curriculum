@@ -40,29 +40,31 @@ public class HealthManager : MonoBehaviour
         if (other.gameObject.CompareTag("Spikes"))
         {
             //change (amount:__) to change how much health drops by when you hit a spike
-            ChangeHealth(amount: -1);
+            hud.health = hud.health - 1;
+            Hurt();
         }
         
         if (other.gameObject.CompareTag("Projectile"))
         {
-            ChangeHealth(amount: -2);
+            hud.health = hud.health - 2;
+            Hurt();
         }
 
         if (other.gameObject.CompareTag("Potion"))
         {
-            ChangeHealth(amount: +2);
+            hud.health = hud.health + 2;
+            Hurt();
         }
     }
 
 
-    void ChangeHealth(int amount)
+    private void Hurt()
     {
         
        if (!iframes)
        { 
            iframes = true; 
-           hud.health =+ amount;
-           if (hud.health < 1)
+           if (hud.health <= 0)
            {
                Death();
            }
@@ -74,7 +76,7 @@ public class HealthManager : MonoBehaviour
     private void Death()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log(message: "You Died :( ");
+        print("You Died");
     }
     
 }

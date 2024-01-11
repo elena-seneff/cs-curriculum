@@ -26,6 +26,9 @@ public class CoinPurse : MonoBehaviour
             hud.coins++;
             other.gameObject.SetActive(false);
         }
+
+        
+        
     }
 }
 

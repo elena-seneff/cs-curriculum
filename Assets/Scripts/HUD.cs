@@ -7,7 +7,7 @@ public class HUD : MonoBehaviour
     public static HUD hud;
     public int coins;
     public int health;
-   
+    
     
     public CoinPurse coinPurse;
     public HealthManager healthManager;
@@ -27,20 +27,22 @@ public class HUD : MonoBehaviour
         }
     }
     
-    // Start is called before the first frame update
+         // Start is called before the first frame update
     void Start()
     {
-        coins = 0;
-        health = 5;
+             coins = 0;
+             health = 5;
     }
-
+     
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
-        healthText.text = "Health: " + health;
-
-        coinText.text = coins.ToString();
-        coinText.text = "Coins: " + coins;
+             healthText.text = health.ToString();
+             healthText.text = "Health: " + health;
+     
+             coinText.text = coins.ToString();
+             coinText.text = "Coins: " + coins;
     }
 }
+    
+   
