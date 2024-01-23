@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
@@ -17,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     public bool overworld;
 
     private float yspeed;
+
+
+    private bool onGround;
+    private Rigidbody2D rb2D;
+    private float jumpForce; 
+   
+    
     // Start is called before the first frame update
 
     void Start()
@@ -32,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
         {
             yspeed = 0;
         }
+
+        onGround = false;
+        rb2D = gameObject.GetComponent<Rigidbody2D>();
+        jumpForce = 200;
     }
 
     // Update is called once per frame
@@ -42,8 +54,28 @@ public class PlayerMovement : MonoBehaviour
         xVector = xDirection * xspeed * Time.deltaTime;
         yVector = yDirection * yspeed * Time.deltaTime;
         transform.position = transform.position + new Vector3(xVector, yVector, 0);
-      
-    }
-    
 
+        if (!overworld)
+        {
+            if (onGround == false)
+            {
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    
+                }
+            }
+        }
+       
+    }
+
+    private void OnColiisionExit2D(Collision2D other)
+    {
+        onGround = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        onGround = true;
+    }
 }

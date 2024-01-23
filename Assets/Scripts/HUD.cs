@@ -7,6 +7,7 @@ public class HUD : MonoBehaviour
     public static HUD hud;
     public int coins;
     public int health;
+    public int maxhealth;
     
     
     public CoinPurse coinPurse;
@@ -32,6 +33,7 @@ public class HUD : MonoBehaviour
     {
              coins = 0;
              health = 5;
+             maxhealth = 5;
     }
      
     // Update is called once per frame

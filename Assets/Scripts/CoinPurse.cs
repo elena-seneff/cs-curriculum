@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 
 public class CoinPurse : MonoBehaviour
@@ -27,8 +28,22 @@ public class CoinPurse : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        
-        
+
+        if (other.gameObject.CompareTag("Potion"))
+        {
+            if (hud.health <=3)
+            {
+                hud.health = hud.health + 2;
+                other.gameObject.SetActive(false);
+            }
+
+            if ((hud.health == 4))
+            {
+                hud.health = hud.maxhealth;
+                other.gameObject.SetActive(false);
+            }
+            
+        }
     }
 }
 

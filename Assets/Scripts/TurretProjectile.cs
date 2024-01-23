@@ -6,7 +6,6 @@ using UnityEngine;
 public class TurretProjectile : MonoBehaviour
 {
     public GameObject player;
-
     private Vector3 target;
 
     public float speed;

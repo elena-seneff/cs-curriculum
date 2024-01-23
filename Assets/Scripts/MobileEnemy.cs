@@ -13,6 +13,7 @@ public class MobileEnemy : MonoBehaviour
     private float enemydrop;
     public GameObject Potion;
     public GameObject Coin;
+    public GameObject Axe;
     
     void Start()
     {
@@ -23,9 +24,9 @@ public class MobileEnemy : MonoBehaviour
     {
         if (enemyhealth <= 0)
         {
-            enemydrop = Random.Range(0, 100);
+            enemydrop = Random.Range(0, 4);
 
-            if (enemydrop <= 25)
+            if (enemydrop == 1)
             {
                 Destroy(gameObject);
                 Instantiate(Potion, transform.position, transform.rotation);
@@ -34,17 +35,23 @@ public class MobileEnemy : MonoBehaviour
 
        
 
-            if (enemydrop <=50 && enemydrop > 25)
+            if (enemydrop == 2)
             {
                 Destroy(gameObject);
                 Instantiate(Coin, transform.position, transform.rotation);
                 print("dropped coin");
             }
 
-            if (enemydrop <=100 && enemydrop > 50)
+            if (enemydrop == 3)
             {
                 Destroy(gameObject);
                 print("no drop");
+            }
+
+            if (enemydrop == 4)
+            {
+                Destroy(gameObject);
+                Instantiate(Axe, transform.position, transform.rotation);
             }
 
 
@@ -61,12 +68,7 @@ public class MobileEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        
-        
-        
-    }
+    
 }
 
 

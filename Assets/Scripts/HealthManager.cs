@@ -43,16 +43,10 @@ public class HealthManager : MonoBehaviour
             hud.health = hud.health - 1;
             Hurt();
         }
-        
+
         if (other.gameObject.CompareTag("Projectile"))
         {
             hud.health = hud.health - 2;
-            Hurt();
-        }
-
-        if (other.gameObject.CompareTag("Potion"))
-        {
-            hud.health = hud.health + 2;
             Hurt();
         }
     }
