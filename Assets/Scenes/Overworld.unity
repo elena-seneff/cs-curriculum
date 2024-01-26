@@ -284,6 +284,7 @@ MonoBehaviour:
   Potion: {fileID: 37555034}
   Coin: {fileID: 703228634}
   Axe: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
+  axeenemy: 0
 --- !u!1001 &212790940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,22 +488,22 @@ PrefabInstance:
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.1411488
+      value: 1.1451735
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.3629622
+      value: 1.5180755
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.061933637
+      value: 0.064248085
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.01238656
+      value: -0.030710459
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
@@ -1217,22 +1218,22 @@ PrefabInstance:
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.1411488
+      value: 1.6920624
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.3629622
+      value: 1.592761
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.061933637
+      value: 0.25066566
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.01238656
+      value: -0.017524242
       objectReference: {fileID: 0}
     - target: {fileID: 2399072710900510365, guid: fbdc99957549444bfba281e61d9d218c,
         type: 3}
@@ -40384,6 +40385,7 @@ MonoBehaviour:
   Potion: {fileID: 37555034}
   Coin: {fileID: 703228634}
   Axe: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
+  axeenemy: 0
 --- !u!4 &481014029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4281311786053241907, guid: 69c7343f050914c7787bbbe42c07b5b8,
@@ -86068,6 +86070,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412193027009803664, guid: 34448014912494d33b041af48acd0291,
         type: 3}
+      propertyPath: m_Size.y
+      value: 1.0014069
+      objectReference: {fileID: 0}
+    - target: {fileID: 412193027009803664, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.030703425
+      objectReference: {fileID: 0}
+    - target: {fileID: 412193027009803664, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -86147,6 +86159,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1750497394}
+    - targetCorrespondingSourceObject: {fileID: 412193027009803667, guid: 34448014912494d33b041af48acd0291,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1750497399}
   m_SourcePrefab: {fileID: 100100000, guid: 34448014912494d33b041af48acd0291, type: 3}
 --- !u!1 &1750497384 stripped
 GameObject:
@@ -86207,6 +86223,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 5790822057519619805, guid: d181d0f6b0e116b4298e1e64b89f707e, type: 3}
   speed: 2
+--- !u!114 &1750497399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e3891b33c3549019196ec15ba189ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1761558974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3000049536412027477, guid: 0614f425ed9b1234285a39c655cdf377,
@@ -86883,9 +86911,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5702e63f02b4aa78108d5a6b956e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Potion: {fileID: 37555034}
-  Coin: {fileID: 703228634}
+  Potion: {fileID: 2348116116792304331, guid: 7c979c325541b4093ba2cf52aaf96fc9, type: 3}
+  Coin: {fileID: 3462362578362087066, guid: 69c7343f050914c7787bbbe42c07b5b8, type: 3}
   Axe: {fileID: 8928701524657299959, guid: 2d2bc4cf5fda5c740b9cedcdbc7c87ac, type: 3}
+  axeenemy: 1
 --- !u!4 &1959626893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3000049536412027477, guid: 0614f425ed9b1234285a39c655cdf377,

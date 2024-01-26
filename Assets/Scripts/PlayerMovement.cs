@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
+using Vector2 = System.Numerics.Vector2;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -16,13 +12,15 @@ public class PlayerMovement : MonoBehaviour
     private float yVector;
     
     public bool overworld;
-
     private float yspeed;
 
 
     private bool onGround;
     private Rigidbody2D rb2D;
-    private float jumpForce; 
+    private float jumpForce;
+
+    private bool hasaxe;
+    
    
     
     // Start is called before the first frame update
@@ -40,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             yspeed = 0;
         }
-
-        onGround = false;
+        
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         jumpForce = 200;
     }
@@ -61,21 +58,29 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                    
+                    rb2D.AddForce(UnityEngine.Vector2.up * jumpForce, ForceMode2D.Impulse);
                 }
             }
         }
        
     }
 
-    private void OnColiisionExit2D(Collision2D other)
+    private void OnCollisionExit2D(Collision2D other)
     {
         onGround = false;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        onGround = true;
+        onGround = true; 
+        if (other.gameObject.CompareTag("Cavedoor"))
+        {
+            if (hasaxe = true)
+            {
+                print("has axe and contact made");
+                Destroy(other.gameObject);
+            }
+            
+        }
     }
 }

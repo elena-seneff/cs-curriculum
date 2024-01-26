@@ -14,7 +14,8 @@ public class HUD : MonoBehaviour
     public HealthManager healthManager;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI healthText;
-    
+
+    public bool hasaxe;
     void Awake()
     {
         if (hud != null && hud != this)

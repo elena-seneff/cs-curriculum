@@ -14,6 +14,8 @@ public class MobileEnemy : MonoBehaviour
     public GameObject Potion;
     public GameObject Coin;
     public GameObject Axe;
+    public bool axeenemy;
+    private bool hasaxe;
     
     void Start()
     {
@@ -24,7 +26,7 @@ public class MobileEnemy : MonoBehaviour
     {
         if (enemyhealth <= 0)
         {
-            enemydrop = Random.Range(0, 4);
+            enemydrop = Random.Range(0, 3);
 
             if (enemydrop == 1)
             {
@@ -48,15 +50,19 @@ public class MobileEnemy : MonoBehaviour
                 print("no drop");
             }
 
-            if (enemydrop == 4)
+            if (axeenemy == true)
             {
                 Destroy(gameObject);
                 Instantiate(Axe, transform.position, transform.rotation);
+                print("dropped axe");
+                hasaxe = true;
             }
-
-
         }
-    
+
+        if (hasaxe = true)
+        {
+            print("has axe");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
