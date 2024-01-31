@@ -15,7 +15,7 @@ public class MobileEnemy : MonoBehaviour
     public GameObject Coin;
     public GameObject Axe;
     public bool axeenemy;
-    private bool hasaxe;
+    public HUD hud;
     
     void Start()
     {
@@ -55,14 +55,12 @@ public class MobileEnemy : MonoBehaviour
                 Destroy(gameObject);
                 Instantiate(Axe, transform.position, transform.rotation);
                 print("dropped axe");
-                hasaxe = true;
+                hud.hasaxe = true;
+                print("hasaxe");
             }
         }
 
-        if (hasaxe = true)
-        {
-            print("has axe");
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

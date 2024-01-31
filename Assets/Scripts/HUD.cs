@@ -35,6 +35,7 @@ public class HUD : MonoBehaviour
              coins = 0;
              health = 5;
              maxhealth = 5;
+             hasaxe = false;
     }
      
     // Update is called once per frame
@@ -45,6 +46,8 @@ public class HUD : MonoBehaviour
      
              coinText.text = coins.ToString();
              coinText.text = "Coins: " + coins;
+             
+             
     }
 }
     

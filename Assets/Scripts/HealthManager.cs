@@ -49,6 +49,13 @@ public class HealthManager : MonoBehaviour
             hud.health = hud.health - 2;
             Hurt();
         }
+
+        if (other.gameObject.CompareTag("FatalSpikes"))
+        {
+            hud.health = hud.health - hud.maxhealth;
+        }
+
+        
     }
 
 

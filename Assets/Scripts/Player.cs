@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     public GameObject fire;
     public float speed;
-    public static 
+    public HUD hud;
    
     // Start is called before the first frame update
     void Start()
@@ -32,13 +33,16 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+
+        if (other.gameObject.CompareTag("Cavedoor"))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (hud.hasaxe = true)
             {
-                
+                SceneManager.LoadScene("Platformer");
             }
         }
+            
+        
     }
     
 }

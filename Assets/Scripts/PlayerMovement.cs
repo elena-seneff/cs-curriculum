@@ -1,5 +1,6 @@
+using Unity.VisualScripting.FullSerializer.Internal;
 using UnityEngine;
-using Vector2 = System.Numerics.Vector2;
+
 
 
 public class PlayerMovement : MonoBehaviour
@@ -14,13 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public bool overworld;
     private float yspeed;
 
-
-    private bool onGround;
+    
     private Rigidbody2D rb2D;
     private float jumpForce;
-
-    private bool hasaxe;
     
+    private LayerMask groundMask;
    
     
     // Start is called before the first frame update
@@ -40,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        jumpForce = 200;
+        jumpForce = 8;
     }
 
     // Update is called once per frame
@@ -52,35 +51,25 @@ public class PlayerMovement : MonoBehaviour
         yVector = yDirection * yspeed * Time.deltaTime;
         transform.position = transform.position + new Vector3(xVector, yVector, 0);
 
+        
         if (!overworld)
         {
-            if (onGround == false)
+            if (Input.GetKeyDown(KeyCode.W))
             {
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    rb2D.AddForce(UnityEngine.Vector2.up * jumpForce, ForceMode2D.Impulse);
-                }
+                rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
+
+    }
+
+
+  //  private bool onGround()
+  //  {
+       // RaycastHit2D hit;
+
+       // hit = Physics2D.Raycast(transform.position, Vector2.down, 2, groundMask);
        
-    }
+       // return hit;
+   // }
 
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        onGround = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        onGround = true; 
-        if (other.gameObject.CompareTag("Cavedoor"))
-        {
-            if (hasaxe = true)
-            {
-                print("has axe and contact made");
-                Destroy(other.gameObject);
-            }
-            
-        }
-    }
 }
