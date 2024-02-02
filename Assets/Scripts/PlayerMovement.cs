@@ -18,8 +18,9 @@ public class PlayerMovement : MonoBehaviour
     
     private Rigidbody2D rb2D;
     private float jumpForce;
-    
-    private LayerMask groundMask;
+
+    private bool onGround;
+    public float raylength;
    
     
     // Start is called before the first frame update
@@ -52,9 +53,12 @@ public class PlayerMovement : MonoBehaviour
         transform.position = transform.position + new Vector3(xVector, yVector, 0);
 
         
+        
         if (!overworld)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            onGround = Physics2D.Raycast(transform.position, Vector2.down, raylength);
+            
+            if (Input.GetKeyDown(KeyCode.W) && onGround || Input.GetKeyDown(KeyCode.UpArrow) && onGround)
             {
                 rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
@@ -63,13 +67,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-  //  private bool onGround()
-  //  {
-       // RaycastHit2D hit;
-
-       // hit = Physics2D.Raycast(transform.position, Vector2.down, 2, groundMask);
-       
-       // return hit;
-   // }
+  
 
 }

@@ -841,8 +841,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd86895f6bbe4069bd4b0fb973c63c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Turret_Projectile: {fileID: 5790822057519619805, guid: d181d0f6b0e116b4298e1e64b89f707e,
+  fireball: {fileID: 5790822057519619805, guid: d181d0f6b0e116b4298e1e64b89f707e,
     type: 3}
+  cooldown: 3
+  speed: 8
 --- !u!58 &365078186
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -877,7 +879,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 4
 --- !u!1001 &396992123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42231,7 +42233,7 @@ GameObject:
   - component: {fileID: 1350614023}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Cavedoor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86233,6 +86235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overworld: 1
+  raylength: 2
 --- !u!114 &1750497389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86326,7 +86329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -319, y: 308}
+  m_AnchoredPosition: {x: -407.2, y: 325.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823573227
@@ -87019,7 +87022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -318, y: 249}
+  m_AnchoredPosition: {x: -407, y: 256.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033153306

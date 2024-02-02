@@ -8,33 +8,35 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    
-    private float originalTimer;
-    private float timer;
-    public GameObject Turret_Projectile;
-    private GameObject target;
-    
+    public GameObject fireball;
+    private float shootCooldown;
+    public float cooldown;
+    private Transform target;
+    public float speed;
     
     // Start is called before the first frame update
     void Start()
     {
-        originalTimer = 1.5f;
-        timer = originalTimer;
-        
+        target = null;
+        speed = 8;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        shootCooldown -= Time.deltaTime;
+        
+        if (shootCooldown <= 0)
         {
-            timer -= Time.deltaTime;
-            
-            if (timer < 0)
+            if (target != null)
             {
-                Instantiate(Turret_Projectile, transform.position, transform.rotation);
-                timer = originalTimer;
+                print("shoot");
+                GameObject clone;
+                clone = Instantiate(fireball, transform.position + new Vector3(0,0,.5f), transform.rotation);
+
+                shootCooldown = cooldown;
             }
+            
             
         }
         
@@ -42,11 +44,16 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        target = other.gameObject;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            target = other.gameObject.transform;
+            print("got target");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        print("target gone");
         target = null;
     }
 }

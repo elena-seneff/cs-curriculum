@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Instantiate(fire ,transform.position, transform.rotation);
+            Instantiate(fire, transform.position, transform.rotation);
+            transform.position = Vector3.forward;
             
         }
 

@@ -19,6 +19,6 @@ public class TurretProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 }

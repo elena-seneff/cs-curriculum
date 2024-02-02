@@ -76,6 +76,8 @@ public class HealthManager : MonoBehaviour
 
     private void Death()
     {
+        hud.coins = 0;
+        hud.health = hud.maxhealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         print("You Died");
     }
